@@ -1,0 +1,51 @@
+<HTML>
+    <HEAD>
+        <script src="lib/jquery-2.1.1.min.js"></script>
+        <script src="lib/jquery.flot.min.js"></script>
+        <script src="lib/core.js"></script>
+        <script src="lib/charts.js"></script>
+        <script src="lib/tweets.js"></script>
+        <script src="lib/log.js"></script>
+        <script src="lib/jquery.flot.min.js"></script>
+        <script src="lib/jquery.flot.categories.min.js"></script>
+        <link rel="stylesheet" href="style/grid.css">
+        <link rel="stylesheet" href="style/layout.css">
+        <link rel="stylesheet" href="style/theme.css">
+        <link rel="stylesheet" href="style/wordcloud.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <style>
+            #graphpos {
+          width: 600px;
+          height: 600px;
+        }
+        </style>
+    </HEAD>
+        
+    <BODY>
+        <h1> Positivity </h1>
+
+        <div  id="graphpos" class="grid_6 vert_2"> </div>
+        <script>
+            // create a rolling chart block
+            block('#graphpos').rolling_chart({
+              memory: 120,
+              series: {
+                'sensor0': {}
+              },
+              chart: {
+                yaxis: {
+                  min: -100,
+                  max: 100
+                },
+                xaxis: {
+                  show: true
+                }
+              }
+            });
+            // connect sample event to graph
+            events.connect('counter', '#graph');
+          </script>
+
+            
+    </BODY>
+</HTML>
